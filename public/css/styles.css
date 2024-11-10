@@ -4,3 +4,151 @@
 *:after {
   box-sizing: border-box;
 }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Saira", "Saira Semi Condensed", "Saira Extra Condensed", sans-serif;
+}
+
+/* header */
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 20px;
+}
+header a {
+  color: black;
+  text-decoration: none;
+}
+.site-name {
+  font-size: 2rem;
+  padding: 10px;
+  font-weight: bold;
+}
+#tools {
+  text-align: right;
+  padding: 10px;
+  font-size: 0.78rem;
+  margin-top: 6px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  text-align: center;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+nav {
+  background-color: rgb(36, 35, 50);
+  color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
+
+main {
+  margin: 10px;
+}
+
+#hero {
+  display: grid;
+  justify-items: center;
+}
+.hero-text {
+  grid-column: 2/3;
+  grid-row: 3/9;
+  color: rgb(29, 195, 228);
+  background-color: rgba(255, 255, 255, 0.616);
+  z-index: 1;
+  padding: 10px;
+
+}
+
+.hero-text h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.hero-text p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+#hero-button {
+  margin-top: 20px;
+  width: 130px;
+}
+#hero-img {
+  grid-column: 1/11;
+  grid-row: 1/11;
+  width: 80%;
+  max-width: 1600px;
+}
+.upgrades {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.upgrades h3 {
+  grid-column: 1/-1;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.reviews h3 {
+  font-size: 1.4rem;
+  font-weight: bolder;
+}
+.upgrades div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+.upgrades a {
+  color: #0000EE;
+  text-decoration: underline;
+}
+.upgrades-icon {
+  background-color: rgb(16, 192, 228);
+  padding: 1%;
+  padding-left: 20%;
+  padding-right: 20%;
+  border: solid black 1px;
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+}
+.upgrades a {
+  margin-top: 5px;
+}
+
+#home-grid {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+footer {
+  margin: 10px;
+}
+
+@media (min-width: 740px) {  
+  html {
+    background-image: url(../images/site/small_check.jpg);
+    width: 100%;
+  }
+  #container {
+    margin: 0;
+    margin: 2rem 5rem;
+    border-radius: 1%;
+    border: solid 5px rgb(38, 212, 247);;
+    background-color: white;
+  }
+  #home-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
