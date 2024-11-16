@@ -101,6 +101,8 @@ main {
   font-size: 1.4rem;
   font-weight: bolder;
 }
+
+
 .upgrades div {
   display: flex;
   flex-direction: column;
@@ -128,6 +130,7 @@ main {
 #home-grid {
   display: flex;
   flex-direction: column-reverse;
+  margin-top: 20px;
 }
 
 footer {
@@ -150,5 +153,6 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+
 
 }
