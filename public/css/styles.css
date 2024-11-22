@@ -49,6 +49,21 @@ nav {
 
 }
 
+
+nav a {
+  text-decoration: none;
+}
+
+nav a:visited {
+  color: yellow; /* Change this to your desired color */
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+
 main {
   margin: 10px;
 }
@@ -137,6 +152,56 @@ footer {
   margin: 10px;
 }
 
+/* Custom vehicles pages */
+
+#inv-display {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+  gap: 16px;
+  align-items: center;
+
+}
+
+#inv-display li {
+  border: 1px solid #ccc; /* Card border */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Hide anything that exceeds the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #fff; /* White background */
+  text-align: center; /* Center-align content */
+  width: 250px;
+}
+
+#inv-display img {
+  width: 100%; /* Ensure images fill the width */
+  height: 150px; /* Set height to maintain uniformity */
+  object-fit: cover; /* Ensures images cover the space while preserving aspect ratio */
+}
+
+.namePrice {
+  padding: 16px; /* Padding inside the card */
+}
+
+.namePrice hr {
+  margin: 8px 0; /* Space around the hr */
+}
+
+.namePrice h2 {
+  margin: 8px 0; /* Space around the vehicle name */
+  font-size: 1.2em; /* Adjust font size */
+}
+
+.namePrice a {
+  color: #007bff; /* Link color */
+}
+
+.namePrice span {
+  font-size: 1.2em; /* Price font size */
+  font-weight: bold; /* Emphasize the price */
+  color: #333; /* Text color */
+}
+
 @media (min-width: 740px) {  
   html {
     background-image: url(../images/site/small_check.jpg);
@@ -154,5 +219,18 @@ footer {
     grid-template-columns: 1fr 1fr;
   }
 
+  #inv-display {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    text-align: center;
+    justify-items: center;
+    align-items: unset;
+  }
+
+
 
 }
+
+
+
