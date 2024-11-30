@@ -264,6 +264,10 @@ ul li span {
   font-weight: bold;
 }
 
+#error {
+  font-size: 0.9rem;
+}
+
 @media (min-width: 740px) {  
   html {
     background-image: url(../images/site/small_check.jpg);
