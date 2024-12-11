@@ -364,7 +364,7 @@ form input[type="password"]:focus {
 
 /* Submit Button */
 form input[type="submit"] {
-  margin-left: 100px;
+  /* margin-left: 100px; */
   margin-bottom: 10px;
   background-color: #1e486d;
   color: #ffffff;
