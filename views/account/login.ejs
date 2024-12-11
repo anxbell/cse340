@@ -1,0 +1,12 @@
+<h1>
+    <%- title %>
+</h1>
+<%- messages() %>
+<div id="loginContainer">
+    <form method="post">
+        <label>Email:<input type="email" name="account_email" id="account_email" required placeholder="Enter a valid email"></label>
+        <label>Password:<input type="password" name="account_password" id="account_password" required placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"></label>
+        <label><input type="submit" value="Login"></label>
+    </form>
+    <div>No account? <a href="/account/register">Sign up</a></div>
+</div>

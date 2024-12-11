@@ -3,6 +3,8 @@ const baseController = {}
 
 baseController.buildHome = async function(req, res){
     const nav = await utilities.getNav()
+//    req.flash("notice", "This is a flash message.")
+//flash message creation line
     res.render("index", {title: "Home", nav})
 }
 

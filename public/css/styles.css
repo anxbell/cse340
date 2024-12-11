@@ -52,6 +52,7 @@ nav {
 
 nav a {
   text-decoration: none;
+  color: white;
 }
 
 nav a:visited {
@@ -315,5 +316,78 @@ ul li span {
 
 }
 
+/* login view */
 
+/* Login Container */
+#loginContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #c3d1dd; /* Slightly lighter dark blue */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: center;
+  margin: auto;
+}
 
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 14px;
+  color: #102633; /* Light blue for text */
+}
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #3a506b;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000;
+}
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+  outline: none;
+  border-color: #5ea3d4; /* Highlight on focus */
+}
+
+/* Submit Button */
+form input[type="submit"] {
+  margin-left: 100px;
+  margin-bottom: 10px;
+  background-color: #1e486d;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+form input[type="submit"]:hover {
+  background-color: #275b87;
+}
+
+/* Sign-up Link */
+#loginContainer a {
+  color: #164464;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+#loginContainer a:hover {
+  color: #5a5a5a;
+}

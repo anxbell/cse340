@@ -1,0 +1,24 @@
+<h1>
+    <%- title %>
+</h1>
+<% if (errors) { %>
+    <ul class="notice">
+        <% errors.array().forEach(error=> { %>
+            <li>
+                <%= error.msg %>
+            </li>
+        <% }) %>
+    </ul>
+<% } %>
+<%- messages() %>
+<div id="loginContainer">
+    <form action="/account/register" method="post">
+        <label>First name:<input type="text" name="account_firstname" id="account_firstname" required placeholder="First name"></label>
+        <label>Last name:<input type="text" name="account_lastname" id="account_lastname" required placeholder="Last name"></label>
+        <label>Email:<input type="email" name="account_email" id="account_email" required placeholder="Enter a valid email"></label>
+        <span>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special
+            character</span>
+        <label>Password:<input type="password" name="account_password" id="account_password" required placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"></label>
+        <label><input type="submit" value="Register My Account"></label>
+    </form>
+</div>
