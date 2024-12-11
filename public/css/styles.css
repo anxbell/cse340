@@ -391,3 +391,103 @@ form input[type="submit"]:hover {
 #loginContainer a:hover {
   color: #5a5a5a;
 }
+
+/* MANAGEMENT  */
+
+/* Page title */
+.page-title {
+  text-align: center;
+  color: #333;
+  margin-top: 20px;
+}
+
+/* Notice/Error messages */
+.notice {
+  padding: 10px;
+  background-color: #f8d7da;
+  color: #721c24;
+  list-style-type: none;
+  border-radius: 5px;
+}
+
+.error-item {
+  font-size: 14px;
+}
+
+/* Login Form Styling */
+#loginContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #c3d1dd;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: center;
+  margin: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 14px;
+  color: #102633;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="number"],
+form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #3a506b;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form input[type="number"]:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #5ea3d4;
+}
+
+/* Textarea */
+form textarea {
+  height: 120px; /* Ensure the textarea is large enough for input */
+  resize: vertical;
+}
+
+/* Required Fields Text */
+.required-fields {
+  font-size: 12px;
+  color: #8a8a8a;
+}
+
+/* Submit Button */
+form input[type="submit"] {
+  background-color: #1e486d;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+form input[type="submit"]:hover {
+  background-color: #275b87;
+}

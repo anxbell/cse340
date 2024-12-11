@@ -4,8 +4,9 @@
     </h1>
     <% } else { res.redirect('/') } %>
 
-        <!-- Message Block -->
-        <%# messages() %>
+    <!-- Message Block -->
 
-            <!-- Inventory Item Display -->
-            <%- details %>
+    <% messages() %>
+    
+    <!-- Inventory Item Display -->
+    <%- grid %>
