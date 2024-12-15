@@ -542,3 +542,36 @@ form input[type="submit"]:hover {
   text-transform: uppercase; /* Make headers uppercase for a professional look */
   letter-spacing: 1px; /* Slight spacing between letters */
 }
+
+#classificationList {
+  width: 100%; /* Full width dropdown */
+  max-width: 300px; /* Optional max width */
+  padding: 10px;
+  font-size: 14px;
+  color: #102633;
+  border: 1px solid #3a506b; /* Medium blue border */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  appearance: none; /* Hides default dropdown arrow for custom styling */
+  outline: none; /* Removes outline on focus */
+  cursor: pointer; /* Pointer cursor for better UX */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Style for hover or focus states */
+#classificationList:hover,
+#classificationList:focus {
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+}
+
+/* Placeholder option style */
+#classificationList option[value=""] {
+  color: #666666; /* Gray text for the placeholder */
+}
+
+/* Optional: Specific styles for selected items */
+#classificationList option:checked {
+  background-color: #0074d9; /* Medium blue background */
+  color: #ffffff; /* White text for contrast */
+}
