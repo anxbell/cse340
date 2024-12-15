@@ -17,10 +17,10 @@
     </ul>
 <% } %>
 <div id="loginContainer">
-    <form action="/inv/management/addInventory" method="post">
+    <form action="/inv/add-inventory" method="post">
         <span>* Indicates required fields</span>
         <label>Make *<input type="text" name="inv_make" id="inv_make" value="<%- locals.inv_make %>" required></label>
-        <label>Model *<input type="text" name="inv_model" id="inve_model" value="<%- locals.inv_model %>" required></label>
+        <label>Model *<input type="text" name="inv_model" id="inv_model" value="<%- locals.inv_model %>" required></label>
         <label>Year *<input type="number" name="inv_year" id="inv_year" value="<%- locals.inv_year %>" required></label>
         <label>Description *<textarea name="inv_description" id="inv_description" value="<%- locals.inv_description %>" required placeholder="Enter Description"></textarea></label>
         <label>Image<input type="text" name="inv_image" id="inv_image" value="<%- locals.inv_image %>"></label>

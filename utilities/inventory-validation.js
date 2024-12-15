@@ -29,7 +29,7 @@ validate.checkClassificationData = async (req, res, next) => {
 
     if (!errors.isEmpty()) {
         let nav = await utilities.getNav()
-        res.render("./inventory/addClassification", {
+        res.render("./inventory/add-classification", {
             errors,
             title: "Add Classification",
             nav,
@@ -121,7 +121,7 @@ validate.checkInventoryData = async (req, res, next) => {
 
     if (!errors.isEmpty()) {
         let nav = await utilities.getNav()
-        res.render("./inventory/addInventory", {
+        res.render("./inventory/add-inventory", {
             errors,
             title: "Add Inventory",
             nav,

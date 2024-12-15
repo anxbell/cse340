@@ -15,10 +15,10 @@ router.get("/type/:classificationId", invController.buildByClassificationId);
 router.get("/detail/:inventoryId", invController.buildDetailByInvId);
 
 router.get("/", handleErrors(buildManagementView))
-router.get("/management/addClassification", handleErrors(buildNewClassificationView))
-router.post("/management/addClassification", classifcationRules(), checkClassificationData, handleErrors(addClassification))
-router.get("/management/addInventory", handleErrors(buildInventoryView))
-router.post("/management/addInventory", inventoryRules(), checkInventoryData, handleErrors(addInventory))
+router.get("/add-classification", handleErrors(buildNewClassificationView))
+router.post("/add-classification", classifcationRules(), checkClassificationData, handleErrors(addClassification))
+router.get("/add-inventory", handleErrors(buildInventoryView))
+router.post("/add-inventory", inventoryRules(), checkInventoryData, handleErrors(addInventory))
 
 
 module.exports = router;

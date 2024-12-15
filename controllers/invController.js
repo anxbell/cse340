@@ -54,7 +54,7 @@ invCont.buildManagementView = async (req, res, next) => {
   invCont.buildNewClassificationView = async (req, res, next) => {
     let nav = await utilities.getNav()
   
-    res.render("./inventory/addClassification", {
+    res.render("./inventory/add-classification", {
       title: "Add Classification",
       nav,
       errors: null,
@@ -69,7 +69,7 @@ invCont.buildManagementView = async (req, res, next) => {
     let nav = await utilities.getNav()
     let classificationList = await utilities.buildClassificationList()
   
-    res.render("./inventory/addInventory", {
+    res.render("./inventory/add-inventory", {
       title: "Add Inventory",
       classificationList,
       nav,
@@ -92,7 +92,7 @@ invCont.buildManagementView = async (req, res, next) => {
       req.flash("notice", `Something went wrong while adding "${ classification_name  }" to the database. ${ result }`)
     }
   
-    res.redirect("/inv/management/addClassification")
+    res.redirect("/inv/add-classification")
   }
   
   /* ***************************
@@ -117,6 +117,6 @@ invCont.buildManagementView = async (req, res, next) => {
       req.flash("notice", `Something went wrong while adding "${ inv_year } ${ inv_make } ${ inv_model }" to the database. ${ result }`)
     }
   
-    res.redirect("/inv/management/addInventory")
+    res.redirect("/inv/add-inventory")
   }
 module.exports = invCont
