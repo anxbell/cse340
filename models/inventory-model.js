@@ -76,4 +76,46 @@ const addInventoryToDatabase = async (inv_make, inv_model, inv_year, inv_descrip
 	}
 }
 
-module.exports = {getClassifications, getInventoryByClassificationId, getDetailsByInventoryId, addClassificationToDatabase, addInventoryToDatabase};
+/* ***************************
+ *  Update vehicle in inventory table
+ * ************************** */
+
+const updateInventory = async (inv_id, inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color, classification_id) => {
+	try {
+	  const results = await pool.query("UPDATE public.inventory SET inv_make = $1, inv_model = $2, inv_description = $3, inv_image = $4, inv_thumbnail = $5, inv_price = $6, inv_year = $7, inv_miles = $8, inv_color = $9, classification_id = $10 WHERE inv_id = $11 RETURNING *", [
+		inv_make, 
+		inv_model, 
+		inv_year, 
+		inv_description, 
+		inv_image, 
+		inv_thumbnail, 
+		inv_price, 
+		inv_miles, 
+		inv_color, 
+		classification_id,
+		inv_id,
+	  ])
+	  return results.rows[0]
+	} catch (error) {
+	  console.error("updateInventory error " + error)
+	  return error
+	}
+  }
+  
+  /* ***************************
+   *  Delete vehicle from inventory table
+   * ************************** */
+  
+  const deleteInventory = async (inv_id) => {
+	try {
+	  const data = await pool.query("DELETE FROM public.inventory WHERE inv_id = $1", [
+		inv_id,
+	  ])
+	  return data
+	} catch (error) {
+	  console.error("deleteInventory " + error)
+	  return error
+	}
+  }
+
+module.exports = {getClassifications, getInventoryByClassificationId, getDetailsByInventoryId, addClassificationToDatabase, addInventoryToDatabase, updateInventory, deleteInventory};

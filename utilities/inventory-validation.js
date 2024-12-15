@@ -7,7 +7,7 @@ const validate = {}
 *  Inventory Classification Validation Rules
 * ********************************* */
 
-validate.classifcationRules = () => {
+validate.classificationRules = () => {
     return [
         body("classification_name")
         .trim()
@@ -124,6 +124,32 @@ validate.checkInventoryData = async (req, res, next) => {
         res.render("./inventory/add-inventory", {
             errors,
             title: "Add Inventory",
+            nav,
+            classificationList,
+            inv_make,
+            inv_model,
+            inv_year,
+        })
+        return
+    }
+
+    next()
+}
+
+/* ******************************
+ * Check inventory and return to edit view if there are errors
+ * ***************************** */
+
+validate.checkUpdateData = async (req, res, next) => {
+    const { inv_make, inv_model, inv_year, inv_id } = req.body
+    let classificationList = await utilities.buildClassificationList()
+    let errors = validationResult(req)
+
+    if (!errors.isEmpty()) {
+        let nav = await utilities.getNav()
+        res.render("./inventory/edit-inventory", {
+            errors,
+            title: `Editing ${ inv_make } ${ inv_model }`,
             nav,
             classificationList,
             inv_make,
