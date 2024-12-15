@@ -319,7 +319,7 @@ ul li span {
 /* login view */
 
 /* Login Container */
-#loginContainer {
+.form-container {
   display: flex;
   flex-direction: column;
   background-color: #c3d1dd; /* Slightly lighter dark blue */
@@ -381,14 +381,14 @@ form input[type="submit"]:hover {
 }
 
 /* Sign-up Link */
-#loginContainer a {
+.form-container a {
   color: #164464;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s;
 }
 
-#loginContainer a:hover {
+.form-container a:hover {
   color: #5a5a5a;
 }
 
@@ -490,4 +490,55 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
   background-color: #275b87;
+}
+
+#classification-select-prompt {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #004080; /* Dark blue color */
+  font-weight: bold;
+}
+
+
+#inventoryDisplay {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a modern look */
+}
+#inventoryDisplay a {
+  text-decoration: none;
+}
+
+#inventoryDisplay th,
+#inventoryDisplay td {
+  border: 1px solid #cce7ff; /* Light blue border */
+  padding: 12px; /* Increased padding for better spacing */
+  font-size: 14px;
+}
+
+#inventoryDisplay th {
+  background-color: #cce7ff;
+  text-align: left;
+}
+
+#inventoryDisplay tr:nth-child(even) {
+  background-color: #f2f9ff; /* Very light blue for even rows */
+}
+
+#inventoryDisplay tr:nth-child(odd) {
+  background-color: #ffffff; /* White for odd rows */
+}
+
+#inventoryDisplay tr:hover {
+  background-color: #cce7ff; /* Highlighted row on hover */
+  cursor: pointer; /* Adds a pointer cursor to make it interactive */
+}
+
+#inventoryDisplay td {
+  color: #333333; /* Slightly darker text for readability */
+}
+
+#inventoryDisplay th {
+  text-transform: uppercase; /* Make headers uppercase for a professional look */
+  letter-spacing: 1px; /* Slight spacing between letters */
 }

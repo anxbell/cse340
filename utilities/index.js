@@ -137,10 +137,10 @@ Util.buildClassificationList = async function (classification_id = null) {
    }
   }
   
-  /* ****************************************
-   *  Check Login
-   * ************************************ */
-   Util.checkLogin = (req, res, next) => {
+/* ****************************************
+ *  Check Login
+ * ************************************ */
+Util.checkLogin = (req, res, next) => {
     if (res.locals.loggedin) {
       next()
     } else {
@@ -149,5 +149,34 @@ Util.buildClassificationList = async function (classification_id = null) {
     }
    }
   
-
+   /* ****************************************
+   *  Validate user
+   * ************************************ */
+  Util.validateUser = (req, res, next) => {
+    console.log(res.locals)
+    if (res.locals.loggedin && (res.locals.accountData.account_type === "Admin" || res.locals.accountData.account_type === "Employee")) {
+      next()
+    } else {
+      req.flash("notice", "You do not have permission to view this content.")
+      res.redirect("/account/login")
+    }
+  }
+  
+   /* ****************************************
+   *  Compare user id with account management param
+   * ************************************ */
+  
+  Util.compareUser = (req, res, next) => {
+    const account_id = req.params.account_id
+    const loggedIn = res.locals.loggedin
+    const isAdmin = res.locals.accountData.account_type === "Admin"
+  
+    if (loggedIn && (account_id === res.locals.accountData.account_id || isAdmin)) {
+      next()
+    } else {
+      req.flash("notice", "You do not have permission to view this content.")
+      res.redirect("/account/login")
+    }
+  }
+  
 module.exports = Util
