@@ -1,0 +1,35 @@
+<!-- Content heading -->
+<% if (title) { %>
+    <h1>
+        <%= title %>
+    </h1>
+    <% } else { res.redirect('/') } %>
+
+   <%- grid %> 
+
+   <% if(locals.loggedin == 1) { %>
+    <h1>Customer Reviews</h1>
+ <!-- inject new review -->
+  <div class="form-container">
+    <h1>Add Your Own Review</h1>
+    <form class="form-container" action="/inv/detail/postedReview" method="post">
+        <div class="input-control">
+        <label for="identifier">Screen Name:</label>
+        <input type="text" id="identifier" name="review_id" size="10" value="<%- locals.accountData.account_firstname %>" required>
+       </div>
+       <div class="input-control">
+        <label for="description">Review:</label>
+        <textarea rows="5" cols="10" name="review_text" id="description"
+         required></textarea>
+       </div>
+       <input type="hidden" id="invId" name="inv_id">
+       <input type="hidden" id="accountId" name="account_id">
+       <button type="submit">Add Review</button>
+    </form>
+    </div>
+    <% } else { %>
+        <h1>Customer Reviews</h1>
+        <p>Be the first to write a review</p>
+        <p>You must <a href="/account/login">login</a> to write a review.</p>
+    <% } %>
+

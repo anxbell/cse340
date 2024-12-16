@@ -117,5 +117,32 @@ const updateInventory = async (inv_id, inv_make, inv_model, inv_year, inv_descri
 	  return error
 	}
   }
+  
+ /* ***************
+  * Add new review
+  ************** */
+ async function addReviewData (
+    review_id, 
+    review_text,
+    inv_id,
+    account_id
+    ){
+    try {
+      const sql = `INSERT INTO public.review
+      (review_id, review_text,inv_id, account_id) 
+      VALUES ($1,$2, $3, $4) RETURNING*`
+      const data = await pool.query(sql, [
+        review_id,
+        review_text,
+        inv_id,
+        account_id
+      ]) 
+      return data.rows
+      } catch (error) {
+      return error.message
+    }
+    }  
 
-module.exports = {getClassifications, getInventoryByClassificationId, getDetailsByInventoryId, addClassificationToDatabase, addInventoryToDatabase, updateInventory, deleteInventory};
+
+
+module.exports = {getClassifications, getInventoryByClassificationId, getDetailsByInventoryId, addClassificationToDatabase, addInventoryToDatabase, updateInventory, deleteInventory,addReviewData};

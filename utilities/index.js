@@ -178,5 +178,33 @@ Util.checkLogin = (req, res, next) => {
       res.redirect("/account/login")
     }
   }
+
+
+/* **************************************
+* Build new review display
+* ************************************ */
+Util.addNewReview = async function(data){
+  let review
+  if(data.length > 0) {
+      review = '<ul id="inv-display">'
+      data.forEach(vehicle => {
+        review += `<div id="description">
+          <div class="vertical-line"></div>
+          <div id="item-description">
+          <h1>Customer Reviews</h1>
+          <h2>${vehicle.review_id}</h2>
+          <p>$${new Intl.NumberFormat('en-US').format(vehicle.review_date)}</p>
+          <p>${vehicle.review_text}</p>
+        </ul>`
+      })
+      review += '</ul>'
+  }
+  else {
+      review = '<p class="notice"> Sorry, there are no reviews.</p>'
+  }
+  console.log(review)
+  return review
+}
+
   
 module.exports = Util

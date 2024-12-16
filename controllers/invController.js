@@ -1,5 +1,6 @@
 const invModel = require("../models/inventory-model")
 const utilities = require("../utilities/")
+const pool = require("../database/")
 
 const invCont = {}
 
@@ -282,6 +283,52 @@ invCont.deleteInventoryFromId = async function (req, res, next) {
   } catch (error) {
     console.error("deleteInventory " + error)
   }
+}
+
+/* **********************
+ * Post/process new review 
+ * **********************/
+invCont.review = async function(req, res, next) {
+	let nav = await utilities.getNav()
+	const {
+		review_id,
+		review_text,
+		inv_id,
+		account_id
+	} = req.body
+	const addResult = await invModel.addReviewData(
+		review_id,
+		review_text,
+		inv_id,
+		account_id
+	)
+	const invData = await invModel.getDetailsByInventoryId(inv_id)
+
+	const grid = await utilities.buildItemGrid(invData[0])
+	const addNewReview = await utilities.addNewReview(grid, res)
+
+	const itemYear = invData[0].inv_year
+	const itemMake = invData[0].inv_make
+	const itemModel = invData[0].inv_model
+	const name = itemYear + itemMake + itemModel
+
+	if (addResult) {
+		req.flash(
+			"notice",
+			"New Review Added"
+		)
+		res.status(201).render("inventory/detail", {
+			title: name,
+			nav,
+			grid,
+			inv_id,
+			addNewReview,
+			errors: null
+		})
+	} else {
+		req.flash("notice", "Sorry, the insert failed.")
+		return res.status(501).render("inventory/edit-inventory")
+	}
 }
 
 module.exports = invCont

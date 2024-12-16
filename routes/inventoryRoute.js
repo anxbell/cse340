@@ -3,7 +3,7 @@ const express = require("express") //scope of the file
 const router = new express.Router() //create a new Router object
 const invController = require("../controllers/invController")
 //brings the inventory controller into this router document's scope to be used.
-const { buildByClassificationId, buildDetailByInvId, buildManagementView, buildNewClassificationView, addClassification, buildInventoryView, addInventory, getInventoryJSON, editInventory, updateInventory, buildDeleteView, deleteInventoryFromId} = require("../controllers/invController");
+const { buildByClassificationId, buildDetailByInvId, buildManagementView, buildNewClassificationView, addClassification, buildInventoryView, addInventory, getInventoryJSON, editInventory, updateInventory, buildDeleteView, deleteInventoryFromId, review} = require("../controllers/invController");
 
 const { handleErrors, validateUser } = require("../utilities");
 
@@ -14,6 +14,9 @@ const { classificationRules, checkClassificationData, inventoryRules, checkInven
 router.get("/type/:classificationId", invController.buildByClassificationId);
 router.get("/detail/:inventoryId", invController.buildDetailByInvId);
 
+// Route to post a review
+router.post("/detail/postedReview", validateUser, handleErrors(invController.review));
+
 router.get("/", validateUser, handleErrors(buildManagementView))
 
 // // Deliver classification addition form
@@ -21,8 +24,6 @@ router.get("/addClassification", validateUser, handleErrors(buildNewClassificati
 
 // // Add new classification to classifications table
 router.post("/addClassification", validateUser, classificationRules(), checkClassificationData, handleErrors(addClassification))
-
-
 
 
 // // Deliver inventory addition form
@@ -45,6 +46,8 @@ router.get("/delete/:inventory_id", validateUser, handleErrors(buildDeleteView))
 
 // Route for deleting items from the inventory.
 router.post("/delete/", validateUser, handleErrors(deleteInventoryFromId))
+
+
 
 
 module.exports = router;
